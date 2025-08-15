@@ -1,47 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animated Sign-Up</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Lilan — Moonlit Gift</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#0b1023" />
 </head>
 <body>
-<div class="background"></div>
-<div class="container-fluid content">
-    <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-            <h1>Welcome</h1>
-            <p class="lead">Created by Hadi!</p>
-            <button id="signUpButton" class="btn btn-primary">Sign Up</button>
-        </div>
+  <!-- Layers: stars, aurora, moon, mountains -->
+  <div class="sky">
+    <div class="stars layer"></div>
+    <div class="stars stars-2 layer"></div>
+    <div class="stars stars-3 layer"></div>
+    <div class="aurora layer"></div>
+    <div class="moon layer" aria-hidden="true"></div>
+    <div class="shooting layer" aria-hidden="true">
+      <i></i><i></i><i></i>
     </div>
-</div>
-<div class="sign-up" id="signUp">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-center mb-4">Sign Up</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                </form>
-            </div>
-        </div>
+    <div class="mountains layer" aria-hidden="true"></div>
+  </div>
+
+  <!-- 3D particle field (pure CSS) -->
+  <div class="space3d" aria-hidden="true">
+    <div class="field">
+      <!-- 64 particles: positions & timings set in CSS nth-child -->
+      <!-- Keep number reasonable for phone performance -->
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
-</div>
-<script src="script.js"></script>
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="hearts" aria-hidden="true">
+    <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+  </div>
+
+  <main class="wrap">
+    <header class="title">
+      <div>Night Film for Lilan</div>
+      <div class="hint">اضغط/ي على الهدية لفتحها 🎁</div>
+    </header>
+
+    <!-- Gift -->
+    <section class="gift" role="button" aria-label="Open the gift for Lilan">
+      <input id="open" type="checkbox" aria-hidden="true" />
+      <label class="click-area" for="open" title="Open the gift"></label>
+
+      <div class="box">
+        <div class="ribbon-h"></div>
+        <div class="ribbon-v"></div>
+      </div>
+      <div class="lid">
+        <div class="ribbon-h"></div>
+        <div class="ribbon-v"></div>
+        <div class="ribbon-knot"></div>
+      </div>
+
+      <!-- Message card -->
+      <div class="message" aria-live="polite">
+        <div class="sparkles"><i></i><i></i><i></i><i></i></div>
+        <p class="to">For the one who lights up my sky</p>
+        <h1 class="love">I love you Lilan</h1>
+      </div>
+
+      <!-- Confetti -->
+      <div class="confetti" aria-hidden="true">
+        <!-- 60 pieces -->
+        <!-- (just leave as-is; CSS animates on open) -->
+        <!-- Row A -->
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <!-- Row B -->
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <footer class="footer">Made with love under the moonlight</footer>
+  </main>
 </body>
 </html>
